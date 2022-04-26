@@ -58,7 +58,14 @@ Here’s about as simple as a urdf as you can make.
 To translate the XML into English, this is a robot with the name ``myfirst``, that contains only one link (a.k.a. part), whose visual component is just a cylinder 0.6 meters long with a 0.2 meter radius.
 This may seem like a lot of enclosing tags for a simple “hello world” type example, but it will get more complicated, trust me.
 
-To examine the model, launch the ``display.launch.py`` file:
+To examine the model in `Foxglove Studio <https://foxglove.dev>`__, open the `web <https://studio.foxglove.dev>`__ or `desktop <https://foxglove.dev/download>`__ application and add a `URDF Viewer <https://foxglove.dev/docs/studio/panels/urdf-viewer>`__ `panel <https://foxglove.dev/docs/studio/panels/introduction`__ to your `layout <https://foxglove.dev/docs/studio/layouts>`__.
+Then, drag and drop your URDF file into that panel to visualize your robot model.
+
+.. image:: foxglove-studio-urdf.png
+  :width: 500 px
+  :alt: Foxglove Studio's URDF Viewer panel
+
+To examine the model in Rviz, launch the ``display.launch.py`` file:
 
 .. code-block:: console
 

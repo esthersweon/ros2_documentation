@@ -124,6 +124,15 @@ Summary
 ``rqt_console`` can be very helpful if you need to closely examine the log messages from your system.
 You might want to examine log messages for any number of reasons, usually to find out where something went wrong and the series of events leading up to that.
 
+Additional resources
+----------
+
+You can also view your log messages using `Foxglove Studio <https://foxglove.dev>`__, an open source `web <https://studio.foxglove.dev>`__ and desktop data visualization application.
+
+`Download the desktop app <https://foxglove.dev/download>`__ to `connect <https://foxglove.dev/docs/studio/connection/native>`__ directly to your running ROS stack.
+Next, add a `Log <https://foxglove.dev/docs/studio/panels/log>`__ `panel <https://foxglove.dev/docs/studio/panels/introduction>`__ to your `layout <https://foxglove.dev/docs/studio/layouts>`__.
+If you've connected to your ROS stack correctly, you should now see a list of your log messages, with the ability to filter them by node name or severity level.
+
 Next steps
 ----------
 

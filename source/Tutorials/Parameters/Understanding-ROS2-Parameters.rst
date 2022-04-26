@@ -240,6 +240,16 @@ Nodes have parameters to define their default configuration values.
 You can ``get`` and ``set`` parameter values from the command line.
 You can also save the parameter settings to a file to reload them in a future session.
 
+Additional resources
+----------
+
+You can also view your ROS parameters using `Foxglove Studio <https://foxglove.dev>`__, an open source `web <https://studio.foxglove.dev>`__ and desktop data visualization application.
+
+`Download the desktop app <https://foxglove.dev/download>`__ to `connect <https://foxglove.dev/docs/studio/connection/native>`__ directly to your running ROS stack.
+Next, add a `Parameters <https://foxglove.dev/docs/studio/panels/parameters>`__ `panel <https://foxglove.dev/docs/studio/panels/introduction>`__ to your `layout <https://foxglove.dev/docs/studio/layouts>`__.
+If you've connected to your ROS stack correctly, you should now see a live view of your current ``rosparams``. 
+You can edit these parameter values to publish ``rosparam`` updates back to your ROS stack.
+
 Next steps
 ----------
 

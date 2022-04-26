@@ -321,6 +321,15 @@ Nodes publish information over topics, which allows any number of other nodes to
 In this tutorial you examined the connections between several nodes over topics using rqt_graph and command line tools.
 You should now have a good idea of how data moves around a ROS 2 system.
 
+Additional resources
+----------
+
+You can also view the ROS graph using `Foxglove Studio <https://foxglove.dev>`__, an open source `web <https://studio.foxglove.dev>`__ and desktop data visualization application.
+
+`Download the desktop app <https://foxglove.dev/download>`__ to `connect <https://foxglove.dev/docs/studio/connection/native>`__ directly to your running ROS stack.
+Next, add a `Topic Graph <https://foxglove.dev/docs/studio/panels/topic-graph>`__ `panel <https://foxglove.dev/docs/studio/panels/introduction>`__ to your `layout <https://foxglove.dev/docs/studio/layouts>`__.
+If you've connected to your ROS stack correctly, you should now see a computational graph of your ROS nodes, topics, and services in that panel.
+
 Next steps
 ----------
 
