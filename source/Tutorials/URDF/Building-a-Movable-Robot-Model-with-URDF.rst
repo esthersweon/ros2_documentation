@@ -23,22 +23,7 @@ Again, all of the robot models mentioned in this tutorial can be found in the `u
 `Here is the new urdf <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/06-flexible.urdf>`_ with flexible joints.
 You can compare it to the previous version to see everything that has changed, but we’re just going to focus on three example joints.
 
-To visualize and control this model in `Foxglove Studio <https://foxglove.dev>`__, open the `web <https://studio.foxglove.dev>`__ or `desktop <https://foxglove.dev/download>`__ application and add a `URDF Viewer <https://foxglove.dev/docs/studio/panels/urdf-viewer>`__ `panel <https://foxglove.dev/docs/studio/panels/introduction`__ to your `layout <https://foxglove.dev/docs/studio/layouts>`__.
-Then, drag and drop your URDF file into that panel to visualize your robot model.
-
-.. image:: foxglove-studio-urdf.png
-  :width: 500 px
-  :alt: Foxglove Studio's URDF Viewer panel
-
-Select any topic publishing a `JointState`` message to update the visualization based on the published joint states (defaults to `/joint_states`).
-
-Toggle to "Manual joint control" to set joint positions using the provided controls.
-
-.. image:: foxglove-studio-urdf-joints.png
-  :width: 500 px
-  :alt: Foxglove Studio's URDF Viewer panel with editable joint positions
-
-To visualize and control this model in RViz, run the same command as the last tutorial:
+To visualize and control this model, run the same command as the last tutorial:
 
 .. code-block:: console
 

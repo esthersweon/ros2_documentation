@@ -262,15 +262,6 @@ You generally don’t want to use a service for continuous calls; topics or even
 
 In this tutorial you used command line tools to identify, elaborate on, and call services.
 
-Additional resources
-----------
-
-You can also view the ROS graph using `Foxglove Studio <https://foxglove.dev>`__, an open source `web <https://studio.foxglove.dev>`__ and desktop data visualization application.
-
-`Download the desktop app <https://foxglove.dev/download>`__ to `connect <https://foxglove.dev/docs/studio/connection/native>`__ directly to your running ROS stack.
-Next, add a `Topic Graph <https://foxglove.dev/docs/studio/panels/topic-graph>`__ `panel <https://foxglove.dev/docs/studio/panels/introduction>`__ to your `layout <https://foxglove.dev/docs/studio/layouts>`__.
-If you've connected to your ROS stack correctly, you should now see a computational graph of your ROS nodes, topics, and services in that panel.
-
 Next steps
 ----------
 
