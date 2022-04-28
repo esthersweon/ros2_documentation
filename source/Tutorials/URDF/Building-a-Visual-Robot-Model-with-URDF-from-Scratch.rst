@@ -3,7 +3,7 @@
 Building a Visual Robot Model with URDF from Scratch
 ====================================================
 
-**Goal:** Learn how to build a visual model of a robot that you can view in RViz
+**Goal:** Learn how to build a visual model of a robot that you can view in Rviz
 
 **Tutorial level:** Beginner
 
@@ -68,7 +68,7 @@ This does three things:
 
  * Loads the specified model and saves it as a parameter
  * Runs nodes to publish `sensor_msgs/msg/JointState <https://github.com/ros2/common_interfaces/blob/eloquent/sensor_msgs/msg/JointState.msg>`_ and transforms (more on these later)
- * Starts RViz with a configuration file
+ * Starts Rviz with a configuration file
 
 Note that the launch command above assumes that you are executing it from the `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ package directory (ie: the ``urdf`` directory is a direct child of the current working directory).
 If that is not the case, the relative path to ``01-myfirst.urdf`` will not be valid, and you'll receive an error as soon as the launcher tries to load the urdf as a parameter.
@@ -203,7 +203,7 @@ We also rotate the leg so it is upright.
   :alt: Origins Screenshot
 
 * The launch file runs packages that will create TF frames for each link in your model based on your URDF.
-  RViz uses this information to figure out where to display each shape.
+  Rviz uses this information to figure out where to display each shape.
 * If a TF frame does not exist for a given URDF link, then it will be placed at the origin in white (ref. `related question <http://answers.ros.org/question/207947/how-do-you-use-externally-defined-materials-in-a-urdfxacro-file/>`_).
 
 Material Girl
