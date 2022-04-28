@@ -1,5 +1,5 @@
-Streamlining Development with Foxglove Studio
-=============================================
+Visualizing ROS 2 data with Foxglove Studio
+===========================================
 
 `Foxglove Studio <https://foxglove.dev/studio>`__ is an open source visualization and debugging tool for your robotics data. 
  
@@ -24,34 +24,13 @@ To connect to your ROS 2 stack, click "Open connection", select the ROS 2 tab, a
 You could also click "Open local file" to select any local ROS 2 ``.db3`` files to load into the application.
 Alternativley, you can drag-and-drop these files directly into Foxglove Studio.
 
-To test your connection, add a `Raw Messages <https://foxglove.dev/docs/studio/panels/raw-messages>`__ panel to your `layout <https://foxglove.dev/docs/studio/layouts>`__, and see a list of available topics populate the dropdown. 
-If you are not yet running any ROS nodes, you should only see the ``/rosout_agg`` topic.
-
 Check out the `Foxglove Studio docs <https://foxglove.dev/docs/studio/connection/native>`__ for more detailed instructions.
 
-Basics
-------
-
-1 View your ROS graph
-^^^^^^^^^^^^^^^^^^^^^
-
-`Using the desktop app <https://foxglove.dev/download>`__, `connect <https://foxglove.dev/docs/studio/connection/native>`__ to your running ROS stack.
-Next, add a `Topic Graph <https://foxglove.dev/docs/studio/panels/topic-graph>`__ `panel <https://foxglove.dev/docs/studio/panels/introduction>`__ to your `layout <https://foxglove.dev/docs/studio/layouts>`__.
-If you've connected to your ROS stack correctly, you should now see a computational graph of your ROS nodes, topics, and services in that panel.
-Use the controls on the right side of the panel to select which topics to display or to toggle services.
-
-2 View your ROS params
-^^^^^^^^^^^^^^^^^^^^^^
-
-`Using the desktop app <https://foxglove.dev/download>`__, `connect <https://foxglove.dev/docs/studio/connection/native>`__ to your running ROS stack.
-Next, add a `Parameters <https://foxglove.dev/docs/studio/panels/parameters>`__ `panel <https://foxglove.dev/docs/studio/panels/introduction>`__ to your `layout <https://foxglove.dev/docs/studio/layouts>`__.
-If you've connected to your ROS stack correctly, you should now see a live view of your current ``rosparams``. 
-You can edit these parameter values to publish ``rosparam`` updates back to your ROS stack.
-
-3 Building layouts with panels
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Building layouts with panels
+----------------------------
 
 `Panels <https://foxglove.dev/docs/studio/panels/introduction>`__ are modular visualization interfaces that can be configured and arranged into Studio `layouts <https://foxglove.dev/docs/studio/layouts>`__.
+You can also save your layouts for future use, for your own personal reference or with your larger robotics team.
 
 Find the full list of available panels in the sidebar's "Add panel" tab.
 
@@ -117,24 +96,7 @@ For the x-axis, choose between plotting the y-axis value's timestamp, element in
 
 Reference the `panel docs <https://foxglove.dev/docs/studio/panels/plot>`__ for more details.
 
-6 Publish panel: Publish live ROS messages
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Publish custom messages on a given topic back to your live ROS stack.
-
-Specifying the topic you want to publish on will automatically infer its datatype and populate the text field with a JSON message template.
-
-The datatype field also provides a dropdown of common ROS datatypes. Selecting one will also populate the text field with a JSON message template.
-
-Edit the template to customize your message before hitting "Publish".
-
-.. image:: foxglove-studio/publish.png
-  :width: 500 px
-  :alt: Foxglove Studio's Publish panel
-
-Reference the `panel docs <https://foxglove.dev/docs/studio/panels/publish>`__ for more details.
-
-7 Raw Messages panel: View incoming topic messages
+6 Raw Messages panel: View incoming topic messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Display incoming topic data in an easy-to-read collapsible JSON tree format.
@@ -145,6 +107,16 @@ Display incoming topic data in an easy-to-read collapsible JSON tree format.
 
 Reference the `panel docs <https://foxglove.dev/docs/studio/panels/raw-messages>`__ for more details.
 
+7 Teleop panel: Teleoperate your robot
+
+Teleoperate your physical robot by publishing ``geometry_msgs/msg/Twist`` messages on a given topic back to your live ROS stack.
+
+.. image:: foxglove-studio/teleop.png
+  :width: 300 px
+  :alt: Foxglove Studio's URDF Viewer panel
+
+Reference the `panel docs <https://foxglove.dev/docs/studio/panels/teleop>`__ for more details.
+
 8 URDF Viewer panel: View and manipulate your URDF model
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -152,7 +124,7 @@ To visualize and control your robot model in Foxglove Studio, open the web or de
 Then, drag and drop your URDF file into that panel to visualize your robot model.
 
 .. image:: foxglove-studio/urdf.png
-  :width: 500 px
+  :width: 300 px
   :alt: Foxglove Studio's URDF Viewer panel
 
 Select any topic publishing a `JointState`` message to update the visualization based on the published joint states (defaults to `/joint_states`).
@@ -164,3 +136,38 @@ Toggle to "Manual joint control" to set joint positions using the provided contr
   :alt: Foxglove Studio's URDF Viewer panel with editable joint positions
 
 Reference the `panel docs <https://foxglove.dev/docs/studio/panels/urdf-viewer>`__ for more details.
+
+Other basic actions
+-------------------
+
+1 View your ROS graph
+^^^^^^^^^^^^^^^^^^^^^
+
+`Using the desktop app <https://foxglove.dev/download>`__, `connect <https://foxglove.dev/docs/studio/connection/native>`__ to your running ROS stack.
+Next, add a `Topic Graph <https://foxglove.dev/docs/studio/panels/topic-graph>`__ `panel <https://foxglove.dev/docs/studio/panels/introduction>`__ to your `layout <https://foxglove.dev/docs/studio/layouts>`__.
+If you've connected to your ROS stack correctly, you should now see a computational graph of your ROS nodes, topics, and services in that panel.
+Use the controls on the right side of the panel to select which topics to display or to toggle services.
+
+2 View and edit your ROS params
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Using the desktop app <https://foxglove.dev/download>`__, `connect <https://foxglove.dev/docs/studio/connection/native>`__ to your running ROS stack.
+Next, add a `Parameters <https://foxglove.dev/docs/studio/panels/parameters>`__ `panel <https://foxglove.dev/docs/studio/panels/introduction>`__ to your `layout <https://foxglove.dev/docs/studio/layouts>`__.
+If you've connected to your ROS stack correctly, you should now see a live view of your current ``rosparams``. 
+You can edit these parameter values to publish ``rosparam`` updates back to your ROS stack.
+
+3 Publish messages back to your live ROS stack
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Using the desktop app <https://foxglove.dev/download>`__, `connect <https://foxglove.dev/docs/studio/connection/native>`__ to your running ROS stack.
+Next, add a `Publish <https://foxglove.dev/docs/studio/panels/publish>`__ `panel <https://foxglove.dev/docs/studio/panels/introduction>`__ to your `layout <https://foxglove.dev/docs/studio/layouts>`__.
+
+Specify the topic you want to publish on to infer its datatype and populate the text field with a JSON message template.
+
+Selecting a datatype in the dropdown of common ROS datatypes will also populate the text field with a JSON message template.
+
+Edit the template to customize your message before hitting "Publish".
+
+.. image:: foxglove-studio/publish.png
+  :width: 300 px
+  :alt: Foxglove Studio's Publish panel
