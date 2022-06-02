@@ -57,7 +57,6 @@ Rows in the table marked in green are the currently supported distributions.
    <style>
      .rst-content tr:nth-child(2) {background-color: #33cc66;}
      .rst-content table.docutils:not(.field-list) tr:nth-child(3) td {background-color: #33cc66;}
-     .rst-content table.docutils:not(.field-list) tr:nth-child(4) td {background-color: #33cc66;}
    </style>
 
 .. |rolling| image:: Releases/rolling-small.png
@@ -96,10 +95,6 @@ Rows in the table marked in green are the currently supported distributions.
      - Release date
      - Logo
      - EOL date
-   * - Iron Irwini
-     - May 23rd, 2023
-     - TBD
-     - TBD
    * - :doc:`Humble Hawksbill <Releases/Release-Humble-Hawksbill>`
      - May 23rd, 2022
      - |humble|

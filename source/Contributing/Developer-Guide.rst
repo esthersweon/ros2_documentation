@@ -307,7 +307,7 @@ For example: Development commits targeting ``foxy`` are made to the ``foxy`` bra
     The maintainers must also perform general maintenance (bug fixes, etc.) on all branches from which package releases are still made.
 
     For example, if a feature is merged into the Rolling-specific branch (e.g. ``rolling`` or ``main``), and that feature is also appropriate
-    to the Humble distribution (does not break API, etc.), then it is good practice to backport the feature to the Humble-specific branch.
+    to the Galactic distribution (does not break API, etc.), then it is good practice to backport the feature to the Galactic-specific branch.
 
     The maintainers may make releases for those older distributions if there are new features or bug fixes available.
 
@@ -476,7 +476,7 @@ The usual workflow is:
 
 * Write tests
 * Enable and run linters
-* Run tests locally using ``colcon test`` (see `colcon tutorial <../Tutorials/Colcon-Tutorial>`)
+* Run tests locally using ``colcon test`` (see `colcon tutorial </Tutorials/Intermediate/Colcon-Tutorial>`)
 * Once everything builds locally without warnings and all tests are passing, run CI on your feature branch:
 
   * Go to ci.ros2.org

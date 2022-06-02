@@ -62,6 +62,12 @@ Desktop Install (Recommended): ROS, RViz, demos, tutorials.
 
    sudo apt install ros-{DISTRO}-desktop
 
+Desktop-Full Install: ROS, RViz, demos, tutorials, simulation, perception.
+
+.. code-block:: bash
+
+   sudo apt install ros-{DISTRO}-desktop-full
+
 ROS-Base Install (Bare Bones): Communication libraries, message packages, command line tools.
 No GUI tools.
 
@@ -107,6 +113,31 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
+Differential drive robot
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you installed ``ros-{DISTRO}-desktop-full`` above you can try some simulation examples.
+
+In one terminal, source the setup file and then launch a simulated differential drive robot:
+
+.. code-block:: bash
+
+   source /opt/ros/{DISTRO}/setup.bash
+   ros2 launch ros_ign_gazebo_demos diff_drive.launch.py
+
+The Gazebo simulator and RViz visualization should come up.
+
+In another terminal source the setup file and then send a command to a robot:
+
+.. code-block:: bash
+
+   source /opt/ros/{DISTRO}/setup.bash
+   ros2 topic pub /model/vehicle_blue/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.5}, angular: {z: 0.05}}"
+
+You should see the vehicle start moving, and its odometry be updated on RViz.
+This verifies that simulation and visualization are working properly.
+Hooray! You can try more simulation demos `here <https://github.com/gazebosim/ros_gz/tree/ros2/ros_ign_gazebo_demos>`__.
+
 Next steps after installing
 ---------------------------
 Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
@@ -118,12 +149,12 @@ The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the 
 Additional RMW implementations (optional)
 -----------------------------------------
 The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
-See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 Troubleshooting
 ---------------
 
-Troubleshooting techniques can be found :doc:`here <../How-To-Guides/Installation-Troubleshooting>`.
+Troubleshooting techniques can be found :doc:`here <../../How-To-Guides/Installation-Troubleshooting>`.
 
 Uninstall
 ---------

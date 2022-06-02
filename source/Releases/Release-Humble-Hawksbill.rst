@@ -383,48 +383,6 @@ For instance, using the following argument will only print out string messages t
 
 See the `pull request <https://github.com/ros2/ros2cli/pull/654>`__ for more information.
 
-
-rviz2
-^^^^^
-
-Apply textures to arbitrary triangle lists
-""""""""""""""""""""""""""""""""""""""""""
-
-We've added `the ability to apply textures defined via URI to arbitrary triangle lists using UV Coordinates <https://github.com/ros2/rviz/pull/719>`__.
-Now we can create a gradient pull from a texture map instead of the default grayscale.
-This will enable complex coloring of markers.
-To use this, you should use the ``visualization_msgs/Marker.msg`` and fill the ``texture_resource``, ``texture``, ``uv_coordinates`` and ``mesh_file`` fields.
-You can find more information `here <https://github.com/ros2/common_interfaces/pull/153>`__.
-
-.. image:: images/triangle_marker_with_gradient.png
-
-Visualization of mass properties (including inertia)
-""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-We also added the ability to visualize inertias. To do this, you select enable 'Inertia' in the 'Mass Properties' under the robot model:
-
-.. image:: images/rviz_mass_inertia.png
-
-You can see an image of an inertia below.
-
-.. image:: images/tb4_inertia.png
-
-Visualize YUV images in RViz
-""""""""""""""""""""""""""""
-
-It is now possible to directly visualize YUV images inside of RViz, rather than having to convert to RGB first.
-See `ros2/rviz#701 <https://github.com/ros2/rviz/pull/701>`__ for details.
-
-Allow rendering of objects > 100 meters
-"""""""""""""""""""""""""""""""""""""""
-
-By default, RViz only renders objects that are within 100 meters of a camera.
-A new configuration property called "Far Plane Distance" in the rviz camera plugin allows that rendering distance to be configured.
-
-.. image:: images/rviz2-far-plane-distance.png
-
-See `ros2/rviz#849 <https://github.com/ros2/rviz/pull/849>`__ for more information.
-
 Changes since the Galactic release
 ----------------------------------
 
@@ -471,12 +429,6 @@ In the interest of being able to record all data in a rosbag, the ability to emb
 The embedded ``Meshfile`` message is not yet supported in implementation.
 
 Related PRs: `ros2/common_interfaces#153 <https://github.com/ros2/common_interfaces/pull/153>`_ `ros2/rviz#719 <https://github.com/ros2/rviz/pull/719>`_
-
-Added ``PRISM`` type to SolidPrimitive
-""""""""""""""""""""""""""""""""""""""
-
-The ``SolidPrimitive`` message had a new ``PRISM`` type added, along with the appropriate metadata.
-See `ros2/common_interfaces#167 <https://github.com/ros2/common_interfaces/pull/167>`_ for more information.
 
 rmw
 ^^^
@@ -662,7 +614,7 @@ ros1_bridge
 ^^^^^^^^^^^
 
 Since there is no official ROS 1 distribution on Ubuntu Jammy and forward, ``ros1_bridge`` is now compatible with the Ubuntu-packaged versions of ROS 1.
-More details about using ``ros1_bridge`` with Jammy packages are available in `the how-to guides <../How-To-Guides/Using-ros1_bridge-Jammy-upstream.rst>`__.
+More details about using ``ros1_bridge`` with Jammy packages are avilable in `the how-to guides <../How-To-Guides/Using-ros1_bridge-Jammy-upstream.rst>`__.
 
 ros2cli
 ^^^^^^^
@@ -767,8 +719,23 @@ See https://github.com/ros2/rosidl/pull/606 for more details, and https://github
 rviz2
 ^^^^^
 
-* `improved the efficiency of 3-bytes pixel formats <https://github.com/ros2/rviz/pull/743>`__
-* `changed the way inertias are computed to use ignition math rather than Ogre's math libraries <https://github.com/ros2/rviz/pull/751>`__.
+We've added `the ability to apply textures defined via URI to arbitrary triangle lists using UV Coordinates <https://github.com/ros2/rviz/pull/719>`__.
+Now we can create a gradient pull from a texture map instead of the default grayscale.
+This will enable complex coloring of markers. To use this, you should use the
+``visualization_msgs/Marker.msg`` and fill the ``texture_resource``, ``texture``, ``uv_coordinates`` and ``mesh_file`` fields.
+You can find more information `here <https://github.com/ros2/common_interfaces/pull/153>`__.
+
+.. image:: images/triangle_marker_with_gradient.png
+
+We also added the ability to visualize inertias. To do this, you select enable 'Inertia' in the 'Mass Properties' under the robot model:
+
+.. image:: images/rviz_mass_inertia.png
+
+You can see an image of an inertia below.
+
+.. image:: images/tb4_inertia.png
+
+Some smaller changes are that we've `improved the efficiency of 3-bytes pixel formats <https://github.com/ros2/rviz/pull/743>`__ and have `changed the way inertias are computed to use ignition math rather than Ogre's math libraries <https://github.com/ros2/rviz/pull/751>`__.
 
 
 geometry2
@@ -839,21 +806,6 @@ With pull request `977 <https://github.com/ros2/rosbag2/pull/977>`_, ``rosbag2``
 In burst mode, the data is played back as fast as possible.
 This is useful in applications such as machine learning.
 
-Zero-Copy playback
-""""""""""""""""""
-
-By default, if loaned message can be used, playback messages are published as loaned message.
-This can help to reduce the number of data copies, so there is a greater benefit for sending big data.
-Pull request `981 <https://github.com/ros2/rosbag2/pull/981>`_ adds ``--disable-loan-message`` option for playback.
-
-Wait for an acknowledgment
-""""""""""""""""""""""""""
-
-This new option will wait until all published messages are acknowledged by all subscribers or until the timeout elapses in millisecond before play is terminated.
-Especially for the case of sending message with big size in a short time.
-This option is valid only if the publisher's QOS profile is RELIABLE.
-Pull request `951 <https://github.com/ros2/rosbag2/pull/951>`_ adds ``--wait-for-all-acked`` option for playback.
-
 Bag editing
 """""""""""
 
@@ -875,14 +827,6 @@ Known Issues
 
 * When ROS 2 apt repositories are available, ROS 1 packages in Ubuntu are not installable.  See the :doc:`ros1_bridge on Ubuntu Jammy <../How-To-Guides/Using-ros1_bridge-Jammy-upstream>` document for more information.
 
-* Some major Linux distributions have started patching Python to install packages to ``/usr/local``, which is breaking some parts of ``ament_package`` and builds with ``colcon``.
-  In particular, using Ubuntu Jammy with ``setuptools`` installed from pip will manifest this misbehavior, and is therefore not recommended.
-  There is currently a `proposed solution <https://github.com/colcon/colcon-core/pull/512>`_ which requires further testing before widespread release.
-
-* ROS 2 bags that are split by size or duration are not played correctly.
-  Only the last bag recorded is played.
-  It is recommended to avoid splitting bags by size or duration.
-  Details can be found in `ros2/rosbag2#966 <https://github.com/ros2/rosbag2/issues/966>`__.
 
 Release Timeline
 ----------------
